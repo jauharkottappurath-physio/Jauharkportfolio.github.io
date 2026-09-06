@@ -3,23 +3,809 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Mohamed Jauhar Kottappurath — Physiotherapist, Dubai</title>
+
 <meta name="description" content="Mohamed Jauhar Kottappurath is a DHA-registered physiotherapist based in Dubai, treating orthopaedic, neurological, geriatric, paediatric and sports conditions.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #2563eb;
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+  --color-bg: #ffffff;
+  --color-bg-light: #f9fafb;
+  --color-border: #e5e7eb;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+
+  --font-serif: 'Source Serif 4', serif;
+  --font-sans: 'IBM Plex Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: white;
+  padding: var(--spacing-sm);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.brand-role {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--color-primary);
+}
+
+.nav-cta {
+  background: var(--color-primary);
+  color: white !important;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 4px;
+}
+
+.nav-cta:hover {
+  opacity: 0.9;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--color-text);
+  transition: 0.3s;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  padding: var(--spacing-2xl) 0;
+}
+
+.hero-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: 50%;
+}
+
+.hero-copy h1 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+}
+
+.hero-lede {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-block;
+  text-align: center;
+  font-family: var(--font-sans);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-ghost {
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.quick-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.quick-facts dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-xs);
+}
+
+.quick-facts dd {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* =========================
+   PROFILE PHOTO
+========================= */
+
+.hero-media {
+  position: relative;
+}
+
+.photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.photo-tag {
+  position: absolute;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.about {
+  background: var(--color-bg-light);
+  padding: var(--spacing-2xl) 0;
+}
+
+.about-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--spacing-2xl);
+}
+
+.about h2,
+.credentials h2,
+.specialisations h2,
+.experience h2,
+.contact h2,
+.approach h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+}
+
+.about-body p {
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.8;
+}
+
+.section-lede {
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.95rem;
+}
+
+/* =========================
+   CREDENTIALS
+========================= */
+
+.credentials {
+  padding: var(--spacing-2xl) 0;
+}
+
+.cert {
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-2xl);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.cert:last-child {
+  margin-bottom: 0;
+}
+
+.cert-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.cert-head h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cert-issuer {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  background: var(--color-bg-light);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.cert-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.cert-table dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-xs);
+}
+
+.cert-table dd {
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.cert-note {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+.cert-note a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.cert-note a:hover {
+  opacity: 0.8;
+}
+
+.cert-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--spacing-md);
+  padding: 10px 18px;
+  background: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.cert-download:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   SPECIALISATIONS
+========================= */
+
+.specialisations {
+  background: var(--color-bg-light);
+  padding: var(--spacing-2xl) 0;
+}
+
+.spec-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-2xl);
+}
+
+.spec-list h3 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+
+.spec-list p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   APPROACH
+========================= */
+
+.approach {
+  padding: var(--spacing-2xl) 0;
+}
+
+.approach-row {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: var(--spacing-2xl);
+}
+
+.approach-intro .section-lede {
+  margin-top: var(--spacing-md);
+}
+
+.approach-list {
+  list-style: none;
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.approach-list li {
+  display: flex;
+  gap: var(--spacing-md);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+.approach-label {
+  font-weight: 600;
+  color: var(--color-text);
+  flex-shrink: 0;
+  min-width: 130px;
+}
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience {
+  background: var(--color-bg-light);
+  padding: var(--spacing-2xl) 0;
+}
+
+.job {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.job-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
+}
+
+.job-head h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.job-dates {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+.job-place {
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.job p:last-of-type {
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+  padding: var(--spacing-2xl) 0;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+}
+
+.contact-details {
+  margin-top: var(--spacing-lg);
+}
+
+.contact-details > div {
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-details dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-xs);
+}
+
+.contact-details dd {
+  font-size: 0.95rem;
+}
+
+.contact-details a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   SOCIAL / WHATSAPP
+========================= */
+
+.contact-socials {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  align-items: center;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-bg-light);
+  color: #25D366;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 1.4rem;
+  border: 1px solid var(--color-border);
+}
+
+.social-link:hover {
+  background: #25D366;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Floating WhatsApp button */
+
+.whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  text-decoration: none;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: all 0.25s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  background: #20bd5a;
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.contact-form label {
+  font-weight: 500;
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+  background: var(--color-bg-light);
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-lg) 0;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-footer p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.site-footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--color-bg);
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .hero-row,
+  .about-row,
+  .approach-row,
+  .contact-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.2rem;
+  }
+
+  .quick-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .cert {
+    padding: var(--spacing-lg);
+  }
+
+  .cert-head {
+    flex-direction: column;
+  }
+
+  .cert-issuer {
+    white-space: normal;
+  }
+
+  .approach-label {
+    min-width: 110px;
+  }
+
+  .footer-row {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+
+  .job-head {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .whatsapp-float {
+    width: 54px;
+    height: 54px;
+    right: 18px;
+    bottom: 18px;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header class="site-header">
   <div class="wrap header-row">
+
     <a class="brand" href="#top">
       <span class="brand-name">Mohamed Jauhar</span>
       <span class="brand-role">Physiotherapist</span>
     </a>
+
     <nav class="nav" id="siteNav">
       <a href="#about">About</a>
       <a href="#credentials">Credentials</a>
@@ -28,244 +814,265 @@
       <a href="#experience">Experience</a>
       <a href="#contact" class="nav-cta">Contact</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
-      <span></span><span></span><span></span>
+
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="siteNav">
+
+      <span></span>
+      <span></span>
+      <span></span>
+
     </button>
+
   </div>
 </header>
 
 <main id="main">
 
-  <section class="hero" id="top">
-    <div class="wrap hero-row">
-      <div class="hero-copy">
-        <p class="badge">
-          <span class="badge-dot" aria-hidden="true"></span>
-          DHA registered physiotherapist · Reg. No. 02557611
-        </p>
-        <h1>Mohamed Jauhar<br>Kottappurath</h1>
-        <p class="hero-lede">
-          Physiotherapist based in Dubai, treating orthopaedic, neurological, geriatric,
-          paediatric and sports conditions with hands-on assessment and a treatment plan
-          built around how each patient actually moves.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="#credentials" class="btn btn-ghost">View credentials</a>
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="top">
+
+  <div class="wrap hero-row">
+
+    <div class="hero-copy">
+
+      <p class="badge">
+        <span class="badge-dot" aria-hidden="true"></span>
+        DHA registered physiotherapist · Reg. No. 02557611
+      </p>
+
+      <h1>
+        Mohamed Jauhar<br>
+        Kottappurath
+      </h1>
+
+      <p class="hero-lede">
+        Physiotherapist based in Dubai, treating orthopaedic, neurological,
+        geriatric, paediatric and sports conditions with hands-on assessment
+        and a treatment plan built around how each patient actually moves.
+      </p>
+
+      <div class="hero-actions">
+
+        <a href="#contact" class="btn btn-primary">
+          Get in touch
+        </a>
+
+        <a href="#credentials" class="btn btn-ghost">
+          View credentials
+        </a>
+
+      </div>
+
+      <dl class="quick-facts">
+
+        <div>
+          <dt>Based in</dt>
+          <dd>Dubai, UAE</dd>
         </div>
-        <dl class="quick-facts">
-          <div><dt>Based in</dt><dd>Dubai, UAE</dd></div>
-          <div><dt>Clinical experience</dt><dd>4+ years</dd></div>
-          <div><dt>Certified in</dt><dd>Musculoskeletal cupping therapy</dd></div>
-        </dl>
-      </div>
-      <div class="hero-media">
-        <div class="photo-frame">
-          <img src="assets/profile.jpg" alt="profile.jpg"
-">
-          <span class="photo-tag">Physiotherapist</span>
+
+        <div>
+          <dt>Clinical experience</dt>
+          <dd>4+ years</dd>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="about" id="about">
-    <div class="wrap about-row">
-      <h2>About</h2>
-      <div class="about-body">
-        <p>
-          Mohamed treats patients across orthopaedic, neurological, geriatric, paediatric
-          and sports conditions, building each plan from a detailed assessment of how
-          muscles, bones and joints are actually working &mdash; not just what the referral
-          says. Over four years in hospital practice, colleagues have known him as
-          sincere, hardworking and dependable, with a steady, professional approach to
-          patient care and strong clinical knowledge.
-        </p>
-        <p>
-          Treatment draws on manual therapy, therapeutic exercise, dry needling,
-          myofascial release, electrotherapy and modalities such as shockwave and laser
-          therapy &mdash; matched to the diagnosis rather than applied by default. Patients
-          leave each session with a clear next step: what changed, what to do at home,
-          and what recovery should feel like next.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="credentials" id="credentials">
-    <div class="wrap">
-      <h2>Credentials</h2>
-      <p class="section-lede">Verified registration and completed training, listed as issued.</p>
-
-      <article class="cert">
-        <header class="cert-head">
-          <h3>Bachelor of Physiotherapy</h3>
-          <span class="cert-issuer">Undergraduate degree</span>
-        </header>
-        <dl class="cert-table">
-          <div><dt>Qualification</dt><dd>Bachelor of Physiotherapy (BPT)</dd></div>
-          <div><dt>Field</dt><dd>Physiotherapy</dd></div>
-        </dl>
-        <p class="cert-note">
-          Foundational training in musculoskeletal, neurological and
-          cardiopulmonary physiotherapy, ahead of DHA registration and clinical
-          practice.
-        </p>
-      </article>
-
-      <article class="cert">
-        <header class="cert-head">
-          <h3>Dubai Health Authority &mdash; Healthcare Professional Registration</h3>
-          <span class="cert-issuer">Government of Dubai · Dubai Health Authority</span>
-        </header>
-        <dl class="cert-table">
-          <div><dt>Registration title</dt><dd>Physiotherapist</dd></div>
-          <div><dt>Category</dt><dd>Allied Health</dd></div>
-          <div><dt>DHA unique ID</dt><dd>02557611</dd></div>
-          <div><dt>Nationality</dt><dd>India</dd></div>
-          <div><dt>Issue date</dt><dd>30 June 2026</dd></div>
-          <div><dt>Registration expiry</dt><dd>30 June 2027</dd></div>
-        </dl>
-        <p class="cert-note">
-          This registration confirms Mohamed's professional standing with the Dubai
-          Health Authority. As with any DHA registration, it is activated into a
-          practising licence once attached to a licensed health facility.
-          <a href="https://services.dha.gov.ae/sheryan/wps/portal/home/services-professional/online-verification" target="_blank" rel="noopener">Verify on the DHA portal &rarr;</a>
-        </p>
-      </article>
-
-      <article class="cert">
-        <header class="cert-head">
-          <h3>Musculoskeletal Cupping Therapy &mdash; Certificate of Completion</h3>
-          <span class="cert-issuer">Crescent Institute of Therapeutic Sciences</span>
-        </header>
-        <dl class="cert-table">
-          <div><dt>Course</dt><dd>Musculoskeletal Cupping Therapy (CIT3045)</dd></div>
-          <div><dt>Format</dt><dd>Intensive 8-hour International CPD course</dd></div>
-          <div><dt>Completed</dt><dd>29 October 2023</dd></div>
-          <div><dt>Designation earned</dt><dd>Certified Musculoskeletal Cupping Therapist (CMCT)</dd></div>
-        </dl>
-        <p class="cert-note">
-          Covers clinical cupping applications, red flags and contraindications for
-          musculoskeletal use.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section class="specialisations" id="specialisations">
-    <div class="wrap">
-      <h2>Specialisations</h2>
-      <p class="section-lede">Conditions treated day to day in hospital practice.</p>
-      <ul class="spec-list">
-        <li>
-          <h3>Orthopaedic</h3>
-          <p>Post-surgical rehab, joint and soft-tissue injuries, chronic pain from bone
-          and muscle conditions.</p>
-        </li>
-        <li>
-          <h3>Neurological</h3>
-          <p>Movement and function support following stroke and other conditions
-          affecting the nervous system.</p>
-        </li>
-        <li>
-          <h3>Geriatric &amp; paediatric</h3>
-          <p>Age-adapted care, from mobility and balance in older adults to development
-          support in children.</p>
-        </li>
-        <li>
-          <h3>Sports</h3>
-          <p>Injury recovery and return-to-play plans for active and competitive
-          patients.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="approach" id="approach">
-    <div class="wrap approach-row">
-      <div class="approach-intro">
-        <h2>Approach &amp; techniques</h2>
-        <p class="section-lede">
-          Every plan starts with assessment &mdash; inspection, palpation, movement testing
-          and a review of existing medical records &mdash; before any technique is chosen.
-        </p>
-      </div>
-      <ol class="approach-list">
-        <li><span class="approach-label">Manual therapy</span>Mobilisation, manipulation and myofascial release.</li>
-        <li><span class="approach-label">Dry needling &amp; IASTM</span>Instrument-assisted soft tissue work and dry needling for trigger points.</li>
-        <li><span class="approach-label">Cupping therapy</span>Certified musculoskeletal cupping, applied with attention to contraindications.</li>
-        <li><span class="approach-label">Electrotherapy</span>TENS, interferential therapy, I-Tecar, ultrasound and short-wave diathermy.</li>
-        <li><span class="approach-label">Shockwave &amp; laser</span>Radial shockwave and laser therapy to relieve pain and support tissue repair.</li>
-        <li><span class="approach-label">Hydrotherapy &amp; cryotherapy</span>Water- and temperature-based treatment where indicated.</li>
-        <li><span class="approach-label">Gait training</span>Structured retraining across the full Functional Ambulatory Category (FAC 0&ndash;5).</li>
-        <li><span class="approach-label">Patient &amp; family education</span>Home programmes, aid use &mdash; splints, braces, walkers &mdash; and guidance to prevent recurrence.</li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="experience" id="experience">
-    <div class="wrap">
-      <h2>Experience</h2>
-      <article class="job">
-        <div class="job-head">
-          <h3>Physiotherapist</h3>
-          <span class="job-dates">April 2022 &ndash; April 2026</span>
+        <div>
+          <dt>Certified in</dt>
+          <dd>Musculoskeletal cupping therapy & Dry needling</dd>
         </div>
-        <p class="job-place">M.S. Hospital, Thiruvegappura &mdash; Palakkad District, Kerala</p>
-        <p>
-          Independently managed a full physiotherapy caseload across orthopaedic,
-          neurological, geriatric, paediatric and sports conditions. Designed treatment
-          plans from clinical assessment and diagnostic review, delivered therapeutic
-          exercise and manual therapy alongside electrotherapy and shockwave modalities,
-          tracked patient progress against gait and function goals, and liaised directly
-          with referring physicians on ongoing care &mdash; including home visits where
-          needed.
-        </p>
-      </article>
-    </div>
-  </section>
 
-  <section class="contact" id="contact">
-    <div class="wrap contact-row">
-      <div class="contact-copy">
-        <h2>Get in touch</h2>
-        <p>
-          Based in Dubai and open to new patients, clinics and hospital opportunities.
-          Send a message with a short note on what you need and the best way to reach
-          you.
-        </p>
-        <dl class="contact-details">
-          <div><dt>Email</dt><dd><a href="mailto:jauharkottappurath@gmail.com">jauharkottappurath@gmail.com</a></dd></div>
-          <div><dt>Phone (UAE)</dt><dd><a href="tel:+971552374438">+971 55 237 4438</a></dd></div>
-          <div><dt>Phone (India)</dt><dd><a href="tel:+919747167488">+91 97471 67488</a></dd></div>
-          <div><dt>Location</dt><dd>Dubai, United Arab Emirates</dd></div>
-        </dl>
+      </dl>
+
+    </div>
+
+    <div class="hero-media">
+
+      <div class="photo-frame">
+
+        <!-- FIXED PROFILE IMAGE -->
+        <img
+          src="./profile.jpg"
+          alt="Mohamed Jauhar Kottappurath - Physiotherapist">
+
+        <span class="photo-tag">
+          Physiotherapist
+        </span>
+
       </div>
-      <form class="contact-form" action="mailto:jauharkottappurath@gmail.com" method="post" enctype="text/plain">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required>
 
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required>
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit" class="btn btn-primary">Send message</button>
-      </form>
     </div>
-  </section>
 
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-row">
-    <p>&copy; <span id="year"></span> Mohamed Jauhar Kottappurath. DHA Reg. No. 02557611.</p>
-    <a href="#top">Back to top</a>
   </div>
-</footer>
 
-<script src="script.js"></script>
-</body>
-</html>
+</section>
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+  <div class="wrap about-row">
+
+    <h2>About</h2>
+
+    <div class="about-body">
+
+      <p>
+        Mohamed treats patients across orthopaedic, neurological, geriatric,
+        paediatric and sports conditions, building each plan from a detailed
+        assessment of how muscles, bones and joints are actually working —
+        not just what the referral says. Over four years in hospital practice,
+        colleagues have known him as sincere, hardworking and dependable,
+        with a steady, professional approach to patient care and strong
+        clinical knowledge.
+      </p>
+
+      <p>
+        Treatment draws on manual therapy, therapeutic exercise, dry needling,
+        myofascial release, electrotherapy and modalities such as shockwave
+        and laser therapy — matched to the diagnosis rather than applied by
+        default. Patients leave each session with a clear next step:
+        what changed, what to do at home, and what recovery should feel like next.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     CREDENTIALS
+========================= -->
+
+<section class="credentials" id="credentials">
+
+  <div class="wrap">
+
+    <h2>Credentials</h2>
+
+    <p class="section-lede">
+      Verified registration and completed training, listed as issued.
+    </p>
+
+    <!-- BPT -->
+
+    <article class="cert">
+
+      <header class="cert-head">
+
+        <h3>Bachelor of Physiotherapy</h3>
+
+        <span class="cert-issuer">
+          Undergraduate degree
+        </span>
+
+      </header>
+
+      <dl class="cert-table">
+
+        <div>
+          <dt>Qualification</dt>
+          <dd>Bachelor of Physiotherapy (BPT)</dd>
+        </div>
+
+        <div>
+          <dt>Field</dt>
+          <dd>Physiotherapy</dd>
+        </div>
+
+      </dl>
+
+      <p class="cert-note">
+        Foundational training in musculoskeletal, neurological and
+        cardiopulmonary physiotherapy, ahead of DHA registration and
+        clinical practice.
+      </p>
+
+    </article>
+
+    <!-- DHA -->
+
+    <article class="cert">
+
+      <header class="cert-head">
+
+        <h3>
+          Dubai Health Authority — Healthcare Professional Registration
+        </h3>
+
+        <span class="cert-issuer">
+          Government of Dubai
+        </span>
+
+      </header>
+
+      <dl class="cert-table">
+
+        <div>
+          <dt>Registration title</dt>
+          <dd>Physiotherapist</dd>
+        </div>
+
+        <div>
+          <dt>Category</dt>
+          <dd>Allied Health</dd>
+        </div>
+
+        <div>
+          <dt>DHA unique ID</dt>
+          <dd>02557611</dd>
+        </div>
+
+        <div>
+          <dt>Nationality</dt>
+          <dd>India</dd>
+        </div>
+
+        <div>
+          <dt>Issue date</dt>
+          <dd>30 June 2026</dd>
+        </div>
+
+        <div>
+          <dt>Registration expiry</dt>
+          <dd>30 June 2027</dd>
+        </div>
+
+      </dl>
+
+      <p class="cert-note">
+
+        This registration confirms Mohamed's professional standing with
+        the Dubai Health Authority.
+
+        <br><br>
+
+        <a
+          href="https://services.dha.gov.ae/sheryan/wps/portal/home/services-professional/online-verification"
+          target="_blank"
+          rel="noopener">
+
+          Verify on the DHA portal →
+        </a>
+
+      </p>
+
+    </article>
+
+    <!-- CUPPING -->
+
+    <article class="cert">
+
+      <header class="cert-head">
+
+        <h3>
+          Musculos
